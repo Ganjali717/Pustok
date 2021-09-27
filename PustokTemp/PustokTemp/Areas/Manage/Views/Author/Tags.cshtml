@@ -1,0 +1,30 @@
+﻿@model List<Tag>
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+
+<h1>Tags</h1>
+
+
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tag Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tags in Model)
+            {
+                order++;
+                <tr>
+                    <th scope="row">@order</th>
+                    <td>@tags.Name</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
