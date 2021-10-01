@@ -38,4 +38,34 @@
 
 
     })
+
+
+
+    $(document).on("click", ".remove-img-box", function (e) {
+        e.preventDefault();
+        $(this).parent().remove()
+    })
+
+
+   /* $('#demo').pagination({
+        dataSource: [DataView.fetch(url)
+            .then(response => response.text())
+            .then(data => 
+                $(".table").html(data))
+        ],
+        pageSize: 5,
+        pageRange: null,
+        showPageNumbers: true,
+        formatResult: function (data) {
+            for (var i = 0, len = data.length; i < len; i++) {
+                data[i].a;
+            }
+        },
+        callback: function (data, pagination) {
+            // template method of yourself
+            var html = template(data);
+            dataContainer.html(html);
+        }
+    })*/
+
 })

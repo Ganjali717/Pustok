@@ -1,0 +1,117 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="container-fluid">
+    <h1>Create</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Name">Name</label>
+                <input asp-for="Name" class="form-control" placeholder="Name">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Code">Code</label>
+                <input asp-for="Code" class="form-control" placeholder="Code">
+                <span class="text-danger" asp-validation-for="Code"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="AuthorId">Author</label>
+                <select asp-for="AuthorId" class="form-control" id="AuthorId" asp-items="@(new SelectList(ViewBag.Authors,"Id","FullName"))">
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="GenreId">Genre</label>
+                <select asp-for="GenreId" class="form-control" id="GenreId" asp-items="@(new SelectList(ViewBag.Genres,"Id","Name"))">
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="TagIds">Tags</label>
+                <select asp-for="TagIds" class="form-control" id="TagIds" asp-items="@(new SelectList(ViewBag.Tags,"Id","Name"))">
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="CostPrice">CostPrice</label>
+                <input asp-for="CostPrice" class="form-control" placeholder="CostPrice">
+                <span class="text-danger" asp-validation-for="CostPrice"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="SalePrice">SalePrice</label>
+                <input asp-for="SalePrice" class="form-control" placeholder="SalePrice">
+                <span class="text-danger" asp-validation-for="SalePrice"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="DiscountPrice">DiscountPrice</label>
+                <input asp-for="DiscountPrice" class="form-control" placeholder="DiscountPrice">
+                <span class="text-danger" asp-validation-for="DiscountPrice"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="PageCount">PageCount</label>
+                <input asp-for="PageCount" class="form-control" placeholder="PageCount">
+                <span class="text-danger" asp-validation-for="PageCount"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <div class="form-check">
+                    <input asp-for="IsAvailable" class="form-check-input" placeholder="IsAvailable">
+                    <label asp-for="IsAvailable" class="form-check-label">IsAvailable</label>
+                    <span class="text-danger" asp-validation-for="IsAvailable"></span>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <input asp-for="IsNew" class="form-check-input" placeholder="IsNew">
+                <label asp-for="IsNew" class="form-check-label">IsNew</label>
+                <span class="text-danger" asp-validation-for="IsNew"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <input asp-for="IsFeatured" class="form-check-input" placeholder="IsFeatured">
+                <label asp-for="IsFeatured" class="form-check-label">IsFeatured</label>
+                <span class="text-danger" asp-validation-for="IsFeatured"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="InfoText">InfoText</label>
+                <input asp-for="InfoText" class="form-control" placeholder="InfoText">
+                <span class="text-danger" asp-validation-for="InfoText"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Desc">Desc</label>
+                <textarea asp-for="Desc" class="form-control" placeholder="Desc"></textarea>
+                <span class="text-danger" asp-validation-for="Desc"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="PosterFile">PosterFile</label>
+                <input asp-for="PosterFile" class="form-control" placeholder="PosterFile">
+                <span class="text-danger" asp-validation-for="PosterFile"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="HoverPosterFile">HoverPosterFile</label>
+                <input asp-for="HoverPosterFile" class="form-control" placeholder="HoverPosterFile">
+                <span class="text-danger" asp-validation-for="HoverPosterFile"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="ImageFiles">ImageFiles</label>
+                    <input asp-for="ImageFiles" class="form-control" placeholder="ImageFiles">
+                    <span class="text-danger" asp-validation-for="ImageFiles"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+
+    </form>
+</div>
+

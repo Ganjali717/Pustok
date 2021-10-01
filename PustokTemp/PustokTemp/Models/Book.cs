@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -43,5 +45,19 @@ namespace PustokTemp.Models
         public List<BookImage> BookImages { get; set; }
 
         public List<BookTag> BookTags { get; set; }
+
+
+        [NotMapped]
+        public IFormFile PosterFile { get; set; }
+        [NotMapped] 
+        public IFormFile HoverPosterFile { get; set; }
+        [NotMapped]
+        public List<IFormFile> ImageFiles { get; set; }
+
+        [NotMapped]
+        public List<int> BookImageIds { get; set; } = new List<int>();
+
+        [NotMapped]
+        public List<int> TagIds { get; set; } = new List<int>();
     }
 }

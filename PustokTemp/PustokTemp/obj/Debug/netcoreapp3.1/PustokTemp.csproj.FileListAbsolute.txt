@@ -487,3 +487,9 @@ C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\P
 C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Author\Create.cshtml.g.cs
 C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Author\Edit.cshtml.g.cs
 C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Author\Delete.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Index.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Create.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Edit.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Book\Index.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Book\Create.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Book\Edit.cshtml.g.cs

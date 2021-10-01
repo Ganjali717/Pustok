@@ -30,10 +30,10 @@
                 </div>
                 <div class="product-card--body">
                     <div class="card-image">
-                        <img src="~/assets/image/products/@book.BookImages.FirstOrDefault(x=>x.PosterStatus==true)?.Image" alt="">
+                        <img src="~/uploads/book/@book.BookImages.FirstOrDefault(x=>x.PosterStatus==true)?.Image" alt="">
                         <div class="hover-contents">
                             <a href="product-details.html" class="hover-image">
-                                <img src="~/assets/image/products/@book.BookImages.FirstOrDefault(x=>x.PosterStatus==false)?.Image" alt="">
+                                <img src="~/uploads/book/@book.BookImages.FirstOrDefault(x=>x.PosterStatus==false)?.Image" alt="">
                             </a>
                             <div class="hover-btns">
                                 <a asp-action="addbasket" asp-controller="book" asp-route-id="@book.Id" data-id="@book.Id" class="single-btn">

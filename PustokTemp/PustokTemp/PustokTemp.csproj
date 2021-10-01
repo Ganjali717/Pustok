@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210927171007_AddItemInAuthor.cs" />
+    <Compile Remove="Migrations\20210927171007_AddItemInAuthor.Designer.cs" />
+    <Compile Remove="Migrations\20211001051425_CreateSomeItemsInBookTable.cs" />
+    <Compile Remove="Migrations\20211001051425_CreateSomeItemsInBookTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.19" />
@@ -18,6 +25,9 @@
   <ItemGroup>
     <Folder Include="Areas\Manage\Data\" />
     <Folder Include="Areas\Manage\Models\" />
+    <Folder Include="wwwroot\uploads\author\" />
+    <Folder Include="wwwroot\uploads\book\" />
+    <Folder Include="wwwroot\uploads\slider\" />
   </ItemGroup>
 
 </Project>
