@@ -17,6 +17,7 @@
                 <th scope="col">Author</th>
                 <th scope="col">Genre</th>
                 <th scope="col">SalePrice</th>
+                <th scope="col">Tag</th>
                 <th scope="col">Image</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -32,6 +33,7 @@
                     <td>@book.Author.FullName</td>
                     <td>@book.Genre.Name</td>
                     <td>@book.SalePrice</td>
+                    <td>@book.BookTags</td>
                     <td><img src="~/uploads/book/@book.BookImages.FirstOrDefault(x=>x.PosterStatus == true)?.Image" style="max-width:100px" alt="Alternate Text" /></td>
                     <td>
                         <a asp-action="edit" asp-route-id="@book.Id" class="btn btn-warning">Edit</a>

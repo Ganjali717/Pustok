@@ -176,90 +176,72 @@ namespace PustokTemp.Areas.Manage.Controllers
             ViewBag.Genres = _context.Genres.ToList();
             ViewBag.Tags = _context.Tags.ToList();
             book.TagIds = book.BookTags.Select(x => x.TagId).ToList();
-            if (book == null) return NotFound();    
+            if (book == null) return NotFound();
             return View(book);
         }
-        
+
         [HttpPost]
         public IActionResult Edit(Book book)
         {
             if (!_context.Authors.Any(x => x.Id == book.AuthorId)) ModelState.AddModelError("AuthorId", "Author not found!");
             if (!_context.Genres.Any(x => x.Id == book.GenreId)) ModelState.AddModelError("GenreId", "Genre not found!");
+            if (!_context.Tags.Any(x => x.Id == ((uint)book.TagIds.FirstOrDefault()))) ModelState.AddModelError("TagIds", "Tag not found!");
 
+            Book existBook = _context.Books.Include(b => b.BookImages).Include(t => t.BookTags).FirstOrDefault(x => x.Id == book.Id);
 
-            Book existBook = _context.Books.Include(b=>b.BookImages).Include(t => t.BookTags).FirstOrDefault(x => x.Id == book.Id);
-
-         
-
-
-            existBook.Name = book.Name;
-            existBook.Code = book.Code;
-            existBook.AuthorId = book.AuthorId;
-            existBook.GenreId = book.GenreId;
-            existBook.CostPrice = book.CostPrice;
-            existBook.SalePrice = book.SalePrice;
-            existBook.DiscountPrice = book.DiscountPrice;
-            existBook.PageCount = book.PageCount;
-            existBook.Desc = book.Desc;
-            existBook.InfoText = book.InfoText;
-            existBook.Rate = book.Rate;
-            existBook.IsAvailable = book.IsAvailable;
-            existBook.IsFeatured = book.IsFeatured;
-            existBook.IsNew = book.IsNew;
-            existBook.BookTags = book.BookTags;
+            if (existBook == null) return View();
 
             if (book.PosterFile != null)
             {
-                if (book.PosterFile.ContentType != "image/jpeg" && book.PosterFile.ContentType != "image/png")
+                if (book.PosterFile.ContentType != "image/png" && book.PosterFile.ContentType != "image/jpeg")
                 {
-                    ModelState.AddModelError("ImageFile", "Content type can be only jpeg or png!");
+                    ModelState.AddModelError("PosterFile", "File type can be only jpeg,jpg or png!");
                     return View();
                 }
 
                 if (book.PosterFile.Length > 2097152)
                 {
-                    ModelState.AddModelError("ImageFile", "File size can not be more than 2mb!");
+                    ModelState.AddModelError("PosterFile", "File size can not be more than 2MB!");
                     return View();
                 }
 
+                BookImage poster = existBook.BookImages.FirstOrDefault(x => x.PosterStatus == true);
+                string newFileName = FileManager.Save(_env.WebRootPath, "uploads/book", book.PosterFile);
 
-                string filename = book.PosterFile.FileName;
-                if (filename.Length > 64)
+                if (poster == null)
                 {
-                    filename = filename.Substring(filename.Length - 64, 64);
-                }
-                string newFileName = Guid.NewGuid().ToString() + filename;
-
-                string path = Path.Combine(_env.WebRootPath, "uploads/book", newFileName);
-
-                using (FileStream stream = new FileStream(path, FileMode.Create))
-                {
-                    book.PosterFile.CopyTo(stream);
-                }
-
-                if (existBook.BookImages.FirstOrDefault(x=>x.PosterStatus == true).Image != null)
-                {
-                    string deletePath = Path.Combine(_env.WebRootPath, "uploads/book", existBook.BookImages.FirstOrDefault(x => x.PosterStatus == true)?.Image);
-
-                    if (System.IO.File.Exists(deletePath))
+                    poster = new BookImage
                     {
-                        System.IO.File.Delete(deletePath);
-                    }
+                        PosterStatus = true,
+                        Image = newFileName,
+                        BookId = book.Id
+                    };
+
+                    _context.BookImages.Add(poster);
                 }
-
-
-                existBook.BookImages.FirstOrDefault(x => x.PosterStatus == true).Image = newFileName;
-            }
-            else if (existBook.BookImages.FirstOrDefault(x => x.PosterStatus == true).Image != null)
-            {
-                string deletePath = Path.Combine(_env.WebRootPath, "uploads/author", existBook.BookImages.FirstOrDefault(x => x.PosterStatus == true).Image);
-
-                if (System.IO.File.Exists(deletePath))
+                else
                 {
-                    System.IO.File.Delete(deletePath);
+                    FileManager.Delete(_env.WebRootPath, "uploads/book", existBook.BookImages.FirstOrDefault(x => x.PosterStatus == true).Image);
+                    poster.Image = newFileName;
                 }
+            }
 
-                existBook.BookImages.FirstOrDefault(x => x.PosterStatus == true).Image = null;
+            /*_context.BookTags.RemoveRange(existBook.BookTags.Where(x => !book.TagIds.Contains(x.TagId)));*/
+
+            //BookTag edit update
+
+            existBook.BookTags.RemoveAll((x => !book.TagIds.Contains(x.TagId)));
+
+            if (book.TagIds != null)
+            {
+                foreach (var tagId in book.TagIds.Where(x => !existBook.BookTags.Any(bt=>bt.TagId==x)))
+                {
+                    BookTag bookTag = new BookTag
+                    {
+                        TagId = tagId,
+                        BookId = book.Id
+                    };
+                }
             }
 
             existBook.BookImages.RemoveAll(x => x.PosterStatus == null && !book.BookImageIds.Contains(x.Id));
@@ -287,6 +269,25 @@ namespace PustokTemp.Areas.Manage.Controllers
                     existBook.BookImages.Add(image);
                 }
             }
+
+            existBook.Name = book.Name;
+            existBook.Code = book.Code;
+            existBook.AuthorId = book.AuthorId;
+            existBook.GenreId = book.GenreId;
+            existBook.CostPrice = book.CostPrice;
+            existBook.SalePrice = book.SalePrice;
+            existBook.DiscountPrice = book.DiscountPrice;
+            existBook.PageCount = book.PageCount;
+            existBook.Desc = book.Desc;
+            existBook.InfoText = book.InfoText;
+            existBook.Rate = book.Rate;
+            existBook.IsAvailable = book.IsAvailable;
+            existBook.IsFeatured = book.IsFeatured;
+            existBook.IsNew = book.IsNew;
+            existBook.TagIds = book.TagIds;
+            existBook.BookTags = book.BookTags;
+
+
             _context.SaveChanges();
 
             return RedirectToAction("index");

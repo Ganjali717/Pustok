@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using PustokTemp.ViewModels;
 using PustokTemp.Models;
 using PustokTemp.ViewModels;
 using System;
@@ -19,6 +20,31 @@ namespace PustokTemp.Controllers
             _context = context;
         }
 
+        public IActionResult Index(int page = 1)
+        {
+           
+            BookViewModel bookVM = new BookViewModel
+            {
+                Books = _context.Books.Include(x => x.BookImages).Include(x => x.Author).Skip((page - 1) * 4).Take(6).ToList(),
+                Authors = _context.Authors.Include(x => x.Books).ToList(),
+                Genres = _context.Genres.Include(x => x.Books).ToList(),
+                MaxPrice = _context.Books.Max(x => x.SalePrice),
+                MinPrice = _context.Books.Min(x => x.SalePrice),
+                Tags = _context.Tags.Include(x => x.BookTags).ToList(),
+
+            };
+
+            ViewBag.TotalPage = Math.Ceiling(_context.Books.Count() / 4m);
+            ViewBag.SelectedPage = page;
+            return View(bookVM);
+        }
+
+        public IActionResult FilterGenre(int id)
+        {
+            List<Book> book = _context.Books.Include(x => x.Author).Include(x => x.BookImages).Where(x => x.GenreId == id).ToList();
+            if (book == null) return NotFound();
+            return PartialView("_BookPartial", book);
+        }
         public IActionResult AddBasket(int id)
         {
             Book book = _context.Books.Include(x => x.BookImages).FirstOrDefault(x => x.Id == id);
@@ -87,6 +113,13 @@ namespace PustokTemp.Controllers
             /*return RedirectToAction("index", "home");*/
 
             return PartialView("_BasketPartial", books);    
+        }
+
+        public IActionResult Detail(int id)
+        {
+            Book book = _context.Books.Include(x => x.BookImages).Include(x => x.BookTags).ThenInclude(x => x.Tag).Include(x => x.Genre).FirstOrDefault(x => x.Id == id);
+            if (book == null) return NotFound();
+            return View(book);
         }
 
     }

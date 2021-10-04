@@ -4,6 +4,7 @@
 @{ 
     Setting setting = service.GetSetting();
     List<BasketItemViewModel> basketItems = service.GetBasketItems();
+    
     double totalCount = 0;
  }
 <!DOCTYPE html>
@@ -330,15 +331,32 @@
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
                                     <div class="login-block">
-                                        <a href="login-register.html" class="font-weight-bold">Login</a> <br>
-                                        <span>or</span><a href="login-register.html">Register</a>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a href="login-register.html" class="font-weight-bold">@User.Identity.Name</a>
+                                            <br />
+                                            <a  class="font-weight-bold" asp-action="logout" asp-controller="account">Logout</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="account/login" class="font-weight-bold">Login</a> <br>
+                                            <span>or</span><a href="account/register">Register</a>
+                                        }
                                     </div>
                                     <div class="cart-block">
                                         @await Html.PartialAsync("_BasketPartial", basketItems)
-                                        
                                     </div>
                                 </div>
+                                <div>
+                                    <a href="#">
+                                        <img src="~/assets/image/icon/wishlist.png" width="40" height="40" />
+                                        <span class="text-number" style="background-color:red; border-radius:50%; color:white; padding:5px;">
+                                           @basketItems.Count
+                                        </span>
+                                    </a>
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

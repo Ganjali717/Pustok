@@ -27,11 +27,11 @@ namespace PustokP123.Helpers
 
         public static bool Delete(string rootPath, string folder, string fileName)
         {
-            string path = Path.Combine(rootPath, folder, fileName);
+            string deletepath = Path.Combine(rootPath, folder, fileName);
 
-            if (System.IO.File.Exists(path))
+            if (File.Exists(deletepath))
             {
-                System.IO.File.Delete(path);
+                File.Delete(deletepath);
                 return true;
             }
 

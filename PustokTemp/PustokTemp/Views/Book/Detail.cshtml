@@ -1,0 +1,499 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Detail";
+
+}
+
+
+
+<section class="breadcrumb-section">
+    <h2 class="sr-only">Site Breadcrumb</h2>
+    <div class="container">
+        <div class="breadcrumb-contents">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Product Details</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<main class="inner-page-sec-padding-bottom">
+    <div class="container">
+        <div class="row  mb--60">
+            <div class="col-lg-5 mb--30">
+                <div class="product-details-slider sb-slick-slider arrow-type-two slick-initialized slick-slider" data-slick-setting="{
+              &quot;slidesToShow&quot;: 1,
+              &quot;arrows&quot;: false,
+              &quot;fade&quot;: true,
+              &quot;draggable&quot;: false,
+              &quot;swipe&quot;: false,
+              &quot;asNavFor&quot;: &quot;.product-slider-nav&quot;
+              }">
+                    <div class="slick-list draggable">
+                        <div class="slick-track" style="opacity: 1; width: 2225px;">
+
+                            @foreach (var item in Model.BookImages)
+                            {
+                                <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="true" style="width: 445px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 1; transition: opacity 500ms ease 0s;" tabindex="-1">
+                                    <div>
+                                        <div class="single-slide" style="width: 100%; display: inline-block;">
+                                            <img src="~/uploads/book/@item.Image" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                Product Details Slider Nav
+                <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two slick-initialized slick-slider" data-slick-setting="{
+            &quot;infinite&quot;:true,
+              &quot;autoplay&quot;: true,
+              &quot;autoplaySpeed&quot;: 8000,
+              &quot;slidesToShow&quot;: 4,
+              &quot;arrows&quot;: true,
+              &quot;prevArrow&quot;:{&quot;buttonClass&quot;: &quot;slick-prev&quot;,&quot;iconClass&quot;:&quot;fa fa-chevron-left&quot;},
+              &quot;nextArrow&quot;:{&quot;buttonClass&quot;: &quot;slick-next&quot;,&quot;iconClass&quot;:&quot;fa fa-chevron-right&quot;},
+              &quot;asNavFor&quot;: &quot;.product-details-slider&quot;,
+              &quot;focusOnSelect&quot;: true
+              }">
+                    <button class="slick-prev slick-arrow" style=""><i class="fa fa-chevron-left"></i></button><div class="slick-list draggable">
+                        <div class="slick-track" style="opacity: 1; width: 1638px; transform: translate3d(-819px, 0px, 0px);">
+                            <div class="slick-slide slick-cloned" data-slick-index="-4" id="" aria-hidden="true" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-2.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-cloned" data-slick-index="-3" id="" aria-hidden="true" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-3.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-cloned" data-slick-index="-2" id="" aria-hidden="true" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-4.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-5.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide" data-slick-index="0" aria-hidden="true" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-1.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-2.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-3.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-current slick-active" data-slick-index="3" aria-hidden="false" style="width: 117px;">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-4.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false" style="width: 117px;">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-5.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-cloned slick-active" data-slick-index="5" id="" aria-hidden="false" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-1.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-cloned slick-active" data-slick-index="6" id="" aria-hidden="false" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-2.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-cloned" data-slick-index="7" id="" aria-hidden="true" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-3.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-cloned" data-slick-index="8" id="" aria-hidden="true" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-4.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-cloned" data-slick-index="9" id="" aria-hidden="true" style="width: 117px;" tabindex="-1">
+                                <div>
+                                    <div class="single-slide" style="width: 100%; display: inline-block;">
+                                        <img src="image/products/product-details-5.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><button class="slick-next slick-arrow" style=""><i class="fa fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                @await Html.PartialAsync("_BookDetailPartial", Model);
+            </div>
+        </div>
+        <div class="sb-custom-tab review-tab section-padding">
+            <ul class="nav nav-tabs nav-style-2" id="myTab2" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">
+                        DESCRIPTION
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="true">
+                        REVIEWS (1)
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content space-db--20" id="myTabContent">
+                <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab1">
+                    <article class="review-article">
+                        <h1 class="sr-only">Tab Article</h1>
+                        <p>
+                            @Model.Desc
+                        </p>
+                    </article>
+                </div>
+                <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab2">
+                    <div class="review-wrapper">
+                        <h2 class="title-lg mb--20">1 REVIEW FOR AUCTOR GRAVIDA ENIM</h2>
+                        <div class="review-comment mb--20">
+                            <div class="avatar">
+                                <img src="image/icon/author-logo.png" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="rating-block mb--15">
+                                    <span class="ion-android-star-outline star_on"></span>
+                                    <span class="ion-android-star-outline star_on"></span>
+                                    <span class="ion-android-star-outline star_on"></span>
+                                    <span class="ion-android-star-outline"></span>
+                                    <span class="ion-android-star-outline"></span>
+                                </div>
+                                <h6 class="author">
+                                    ADMIN – <span class="font-weight-400">March 23, 2015</span>
+                                </h6>
+                                <p>
+                                    Lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio
+                                    quis mi.
+                                </p>
+                            </div>
+                        </div>
+                        <h2 class="title-lg mb--20 pt--15">ADD A REVIEW</h2>
+                        <div class="rating-row pt-2">
+                            <p class="d-block">Your Rating</p>
+                            <span class="rating-widget-block">
+                                <input type="radio" name="star" id="star1">
+                                <label for="star1"></label>
+                                <input type="radio" name="star" id="star2">
+                                <label for="star2"></label>
+                                <input type="radio" name="star" id="star3">
+                                <label for="star3"></label>
+                                <input type="radio" name="star" id="star4">
+                                <label for="star4"></label>
+                                <input type="radio" name="star" id="star5">
+                                <label for="star5"></label>
+                            </span>
+                            <form action="./" class="mt--15 site-form ">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="message">Comment</label>
+                                            <textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="name">Name *</label>
+                                            <input type="text" id="name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="email">Email *</label>
+                                            <input type="text" id="email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="website">Website</label>
+                                            <input type="text" id="website" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="submit-btn">
+                                            <a href="#" class="btn btn-black">Post Comment</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-product-details">
+            <div class="brand">
+                <img src="image/others/review-tab-product-details.jpg" alt="">
+            </div>
+            <h5 class="meta">Reference <span class="small-text">demo_5</span></h5>
+            <h5 class="meta">In stock <span class="small-text">297 Items</span></h5>
+            <section class="product-features">
+                <h3 class="title">Data sheet</h3>
+                <dl class="data-sheet">
+                    <dt class="name">Compositions</dt>
+                    <dd class="value">Viscose</dd>
+                    <dt class="name">Styles</dt>
+                    <dd class="value">Casual</dd>
+                    <dt class="name">Properties</dt>
+                    <dd class="value">Maxi Dress</dd>
+                </dl>
+            </section>
+        </div>
+    </div>
+
+    <section class="">
+        <div class="container">
+            <div class="section-title section-title--bordered">
+                <h2>RELATED PRODUCTS</h2>
+            </div>
+            <div class="product-slider sb-slick-slider slider-border-single-row slick-initialized slick-slider slick-dotted" data-slick-setting="{
+                &quot;autoplay&quot;: true,
+                &quot;autoplaySpeed&quot;: 8000,
+                &quot;slidesToShow&quot;: 4,
+                &quot;dots&quot;:true
+            }" data-slick-responsive="[
+                {&quot;breakpoint&quot;:1200, &quot;settings&quot;: {&quot;slidesToShow&quot;: 4} },
+                {&quot;breakpoint&quot;:992, &quot;settings&quot;: {&quot;slidesToShow&quot;: 3} },
+                {&quot;breakpoint&quot;:768, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2} },
+                {&quot;breakpoint&quot;:480, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1} }
+            ]">
+                <div class="slick-list draggable">
+                    <div class="slick-track" style="opacity: 1; width: 1390px; transform: translate3d(-278px, 0px, 0px);">
+
+                        <div class="slick-slide" data-slick-index="0" aria-hidden="true" style="width: 278px;" role="tabpanel" id="slick-slide20" tabindex="-1" aria-describedby="slick-slide-control20">
+                            <div>
+                                <div class="single-slide" style="width: 100%; display: inline-block;">
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <a href="" class="author" tabindex="-1">
+                                                Lpple
+                                            </a>
+                                            <h3><a href="product-details.html" tabindex="-1">Revolutionize Your BOOK With</a></h3>
+                                        </div>
+                                        <div class="product-card--body">
+                                            <div class="card-image">
+                                                <img src="~/assets/image/products/product-10.jpg" alt="">
+                                                <div class="hover-contents">
+                                                    <a href="product-details.html" class="hover-image" tabindex="-1">
+                                                        <img src="~/assets/image/products/product-1.jpg" alt="">
+                                                    </a>
+                                                    <div class="hover-btns">
+                                                        <a href="cart.html" class="single-btn" tabindex="-1">
+                                                            <i class="fas fa-shopping-basket"></i>
+                                                        </a>
+                                                        <a href="wishlist.html" class="single-btn" tabindex="-1">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                        <a href="compare.html" class="single-btn" tabindex="-1">
+                                                            <i class="fas fa-random"></i>
+                                                        </a>
+                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quickModal" class="single-btn" tabindex="-1">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="price-block">
+                                                <span class="price">£51.20</span>
+                                                <del class="price-old">£51.20</del>
+                                                <span class="price-discount">20%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" style="width: 278px;" role="tabpanel" id="slick-slide21" aria-describedby="slick-slide-control21">
+                            <div>
+                                <div class="single-slide" style="width: 100%; display: inline-block;">
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <a href="" class="author" tabindex="0">
+                                                Jpple
+                                            </a>
+                                            <h3>
+                                                <a href="product-details.html" tabindex="0">Turn Your BOOK Into High Machine</a>
+                                            </h3>
+                                        </div>
+                                        <div class="product-card--body">
+                                            <div class="card-image">
+                                                <img src="image/products/product-2.jpg" alt="">
+                                                <div class="hover-contents">
+                                                    <a href="product-details.html" class="hover-image" tabindex="0">
+                                                        <img src="image/products/product-1.jpg" alt="">
+                                                    </a>
+                                                    <div class="hover-btns">
+                                                        <a href="cart.html" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-shopping-basket"></i>
+                                                        </a>
+                                                        <a href="wishlist.html" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                        <a href="compare.html" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-random"></i>
+                                                        </a>
+                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quickModal" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="price-block">
+                                                <span class="price">£51.20</span>
+                                                <del class="price-old">£51.20</del>
+                                                <span class="price-discount">20%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 278px;" role="tabpanel" id="slick-slide22">
+                            <div>
+                                <div class="single-slide" style="width: 100%; display: inline-block;">
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <a href="" class="author" tabindex="0">
+                                                Wpple
+                                            </a>
+                                            <h3><a href="product-details.html" tabindex="0">3 Ways Create Better BOOK With</a></h3>
+                                        </div>
+                                        <div class="product-card--body">
+                                            <div class="card-image">
+                                                <img src="image/products/product-3.jpg" alt="">
+                                                <div class="hover-contents">
+                                                    <a href="product-details.html" class="hover-image" tabindex="0">
+                                                        <img src="image/products/product-2.jpg" alt="">
+                                                    </a>
+                                                    <div class="hover-btns">
+                                                        <a href="cart.html" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-shopping-basket"></i>
+                                                        </a>
+                                                        <a href="wishlist.html" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                        <a href="compare.html" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-random"></i>
+                                                        </a>
+                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quickModal" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="price-block">
+                                                <span class="price">£51.20</span>
+                                                <del class="price-old">£51.20</del>
+                                                <span class="price-discount">20%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false" style="width: 278px;" role="tabpanel" id="slick-slide24">
+                            <div>
+                                <div class="single-slide" style="width: 100%; display: inline-block;">
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <a href="" class="author" tabindex="0">
+                                                Hpple
+                                            </a>
+                                            <h3><a href="product-details.html" tabindex="0">a Half Very Simple Things You To</a></h3>
+                                        </div>
+                                        <div class="product-card--body">
+                                            <div class="card-image">
+                                                <img src="image/products/product-6.jpg" alt="">
+                                                <div class="hover-contents">
+                                                    <a href="product-details.html" class="hover-image" tabindex="0">
+                                                        <img src="image/products/product-4.jpg" alt="">
+                                                    </a>
+                                                    <div class="hover-btns">
+                                                        <a href="cart.html" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-shopping-basket"></i>
+                                                        </a>
+                                                        <a href="wishlist.html" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                        <a href="compare.html" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-random"></i>
+                                                        </a>
+                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quickModal" class="single-btn" tabindex="0">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="price-block">
+                                                <span class="price">£51.20</span>
+                                                <del class="price-old">£51.20</del>
+                                                <span class="price-discount">20%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="slick-dots" role="tablist" style="">
+                    <li class="" role="presentation">
+                        <button type="button" role="tab" id="slick-slide-control20" aria-controls="slick-slide20" aria-label="1 of 2" tabindex="-1">1</button>
+                    </li>
+                    <li role="presentation" class="slick-active"><button type="button" role="tab" id="slick-slide-control21" aria-controls="slick-slide21" aria-label="2 of 2" tabindex="0" aria-selected="true">2</button></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+   
+</main>
+
+
+

@@ -7,11 +7,16 @@
   <ItemGroup>
     <Compile Remove="Migrations\20210927171007_AddItemInAuthor.cs" />
     <Compile Remove="Migrations\20210927171007_AddItemInAuthor.Designer.cs" />
+    <Compile Remove="Migrations\20210929063317_DeleteFromBookImage.cs" />
+    <Compile Remove="Migrations\20210929063317_DeleteFromBookImage.Designer.cs" />
     <Compile Remove="Migrations\20211001051425_CreateSomeItemsInBookTable.cs" />
     <Compile Remove="Migrations\20211001051425_CreateSomeItemsInBookTable.Designer.cs" />
+    <Compile Remove="Migrations\20211004103319_UsersTableCreated.cs" />
+    <Compile Remove="Migrations\20211004103319_UsersTableCreated.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.19" />

@@ -1,0 +1,360 @@
+﻿@model BookViewModel
+@{
+    ViewData["Title"] = "Index";
+    int order = (ViewBag.SelectedPage - 1) * 4;
+    int selectedPage = ViewBag.SelectedPage;
+    decimal totalPage = ViewBag.TotalPage;
+}
+
+<section class="breadcrumb-section">
+    <h2 class="sr-only">Site Breadcrumb</h2>
+    <div class="container">
+        <div class="breadcrumb-contents">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Shop</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<main class="inner-page-sec-padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 order-lg-2">
+                <div class="shop-toolbar with-sidebar mb--30">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2 col-md-2 col-sm-6">
+                            <!-- Product View Mode -->
+                            <div class="product-view-mode">
+                                <a href="#" class="sorting-btn active" data-target="grid">
+                                    <i class="fas fa-th"></i>
+                                </a>
+                                <a href="#" class="sorting-btn" data-target="grid-four">
+                                    <span class="grid-four-icon">
+                                        <i class="fas fa-grip-vertical"></i><i class="fas fa-grip-vertical"></i>
+                                    </span>
+                                </a>
+                                <a href="#" class="sorting-btn" data-target="list ">
+                                    <i class="fas fa-list"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-4 col-sm-6  mt--10 mt-sm--0">
+                            <span class="toolbar-status">
+                                Showing 1 to 9 of 14 (2 Pages)
+                            </span>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-6  mt--10 mt-md--0">
+                            <div class="sorting-selection">
+                                <span>Show:</span>
+                                <select class="form-control nice-select sort-select">
+                                    <option value="" selected="selected">3</option>
+                                    <option value="">9</option>
+                                    <option value="">5</option>
+                                    <option value="">10</option>
+                                    <option value="">12</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
+                            <div class="sorting-selection">
+                                <span>Sort By:</span>
+                                <select class="form-control nice-select sort-select mr-0">
+                                    <option value="" selected="selected">Default Sorting</option>
+                                    <option value="">
+                                        Sort
+                                        By:Name (A - Z)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Name (Z - A)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Price (Low &gt; High)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Price (High &gt; Low)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Rating (Highest)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Rating (Lowest)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Model (A - Z)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Model (Z - A)
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-toolbar d-none">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2 col-md-2 col-sm-6">
+                            <!-- Product View Mode -->
+                            <div class="product-view-mode">
+                                <a href="#" class="sorting-btn active" data-target="grid">
+                                    <i class="fas fa-th"></i>
+                                </a>
+                                <a href="#" class="sorting-btn" data-target="grid-four">
+                                    <span class="grid-four-icon">
+                                        <i class="fas fa-grip-vertical"></i><i class="fas fa-grip-vertical"></i>
+                                    </span>
+                                </a>
+                                <a href="#" class="sorting-btn" data-target="list ">
+                                    <i class="fas fa-list"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-md-4 col-sm-6  mt--10 mt-sm--0">
+                            <span class="toolbar-status">
+                                Showing 1 to 9 of 14 (2 Pages)
+                            </span>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-6  mt--10 mt-md--0">
+                            <div class="sorting-selection">
+                                <span>Show:</span>
+                                <select class="form-control nice-select sort-select">
+                                    <option value="" selected="selected">3</option>
+                                    <option value="">9</option>
+                                    <option value="">5</option>
+                                    <option value="">10</option>
+                                    <option value="">12</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 mt--10 mt-md--0 ">
+                            <div class="sorting-selection">
+                                <span>Sort By:</span>
+                                <select class="form-control nice-select sort-select mr-0">
+                                    <option value="" selected="selected">Default Sorting</option>
+                                    <option value="">
+                                        Sort
+                                        By:Name (A - Z)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Name (Z - A)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Price (Low &gt; High)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Price (High &gt; Low)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Rating (Highest)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Rating (Lowest)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Model (A - Z)
+                                    </option>
+                                    <option value="">
+                                        Sort
+                                        By:Model (Z - A)
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-product-wrap grid with-pagination row space-db--30 shop-border">
+                     @await Html.PartialAsync("_BookPartial", Model.Books);
+                </div>
+                <!-- Pagination Block -->
+                <div class="row pt--30">
+                    <div class="col-md-12">
+                        @*  <div class="pagination-block">
+            <ul class="pagination-btns flex-center">
+                <li>
+                    <a href="#" class="single-btn prev-btn ">
+                        |<i class="zmdi zmdi-chevron-left"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="single-btn prev-btn ">
+                        <i class="zmdi zmdi-chevron-left"></i>
+                    </a>
+                </li>
+                <li class="active"><a href="#" class="single-btn">1</a></li>
+                <li><a href="#" class="single-btn">2</a></li>
+                <li><a href="#" class="single-btn">3</a></li>
+                <li><a href="#" class="single-btn">4</a></li>
+                <li>
+                    <a href="#" class="single-btn next-btn">
+                        <i class="zmdi zmdi-chevron-right"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="single-btn next-btn">
+                        <i class="zmdi zmdi-chevron-right"></i>|
+                    </a>
+                </li>
+            </ul>
+        </div>*@
+
+                        @*<div class="d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item @(ViewBag.SelectedPage==1?"disabled":"")">
+                        <a class="page-link" asp-action="index" asp-route-page="@(ViewBag.SelectedPage-1)" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                    {
+                        <li class="page-item @(i==ViewBag.SelectedPage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+                    }
+                    <li class="page-item @(ViewBag.SelectedPage==ViewBag.TotalPage?"disabled":"")">
+                        <a class="page-link" asp-action="index" asp-route-page="@(ViewBag.SelectedPage+1)" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>*@
+
+                        <div class="row pt--30">
+                            <div class="col-md-12">
+                                <div class="pagination-block">
+                                    <ul class="pagination-btns flex-center">
+
+                                        @if (selectedPage > 1)
+                                        {
+                                            <li>
+                                                <a asp-action="index" asp-route-page="1" class="single-btn prev-btn ">
+                                                    |<i class="zmdi zmdi-chevron-left"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a asp-action="index" asp-route-page="@(selectedPage-1)" class="single-btn prev-btn ">
+                                                    <i class="zmdi zmdi-chevron-left"></i>
+                                                </a>
+                                            </li>
+                                        }
+
+                                        @if (selectedPage != 1 && selectedPage != ViewBag.TotalPage)
+                                        {
+                                            <li><a asp-action="index" asp-route-page="@(selectedPage-1)" class="single-btn">@(selectedPage-1)</a></li>
+                                            <li class="active"><a asp-action="index" asp-route-page="@(selectedPage)" class="single-btn active">@selectedPage</a></li>
+                                            <li><a asp-action="index" asp-route-page="@(selectedPage+1)" class="single-btn">@(selectedPage+1)</a></li>
+                                        }
+
+                                        else if (selectedPage == 1)
+                                        {
+                                            <li class="active"><a asp-action="index" asp-route-page="1" class="single-btn">1</a></li>
+                                            if (totalPage >= 2)
+                                            {
+                                                <li><a asp-action="index" asp-route-page="2" class="single-btn">2</a></li>
+                                            }
+                                            if (totalPage >= 3)
+                                            {
+                                                <li><a asp-action="index" asp-route-page="3" class="single-btn">3</a></li>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (selectedPage - 2 >= 1)
+                                            {
+                                                <li><a asp-action="index" asp-route-page="@(selectedPage-2)" class="single-btn">@(selectedPage-2)</a></li>
+                                            }
+                                            if (selectedPage - 1 >= 1)
+                                            {
+                                                <li><a asp-action="index" asp-route-page="@(selectedPage-1)" class="single-btn">@(selectedPage-1)</a></li>
+                                            }
+
+                                            <li class="active"><a asp-action="index" asp-route-page="@selectedPage" class="single-btn">@selectedPage</a></li>
+                                        }
+                                        @if (selectedPage < totalPage)
+                                        {
+                                            <li>
+                                                <a asp-action="index" asp-route-page="@(selectedPage+1)" class="single-btn next-btn">
+                                                    <i class="zmdi zmdi-chevron-right"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a asp-action="index" asp-route-page="@(totalPage)" class="single-btn next-btn">
+                                                    <i class="zmdi zmdi-chevron-right"></i>|
+                                                </a>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3  mt--40 mt-lg--0">
+                <div class="inner-page-sidebar">
+                    <!-- Accordion -->
+                    <div class="single-block">
+                        <h3 class="sidebar-title">Genres</h3>
+                        <ul class="sidebar-menu--shop">
+                            @foreach (var genre in Model.Genres)
+                            {
+                                <li><a asp-action="filtergenre" asp-controller="book" asp-route-id="@genre.Id" class="get-by-genre" data-id="@genre.Id">@genre.Name (@genre.Books.Count())</a></li>
+                            }
+
+                        </ul>
+                    </div>
+                    <!-- Price -->
+                    <div class="single-block">
+                        <h3 class="sidebar-title">Fillter By Price</h3>
+                        <div class="range-slider pt--30">
+                            <div class="sb-range-slider"></div>
+                            <div class="slider-price">
+                                <p>
+                                    <input type="text" id="amount" readonly="">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Size -->
+                    <div class="single-block">
+                        <h3 class="sidebar-title">Authors</h3>
+                        <ul class="sidebar-menu--shop menu-type-2">
+                            @foreach (var auth in Model.Authors)
+                            {
+                                <li><a href="#">@auth.FullName <span>(@auth.Books.Count())</span></a></li>
+                            }
+                        </ul>
+                    </div>
+                    <!-- Color -->
+                    <div class="single-block">
+                        <h3 class="sidebar-title">Tags</h3>
+                        <ul class="sidebar-menu--shop menu-type-2">
+                            @foreach (var tag in Model.Tags)
+                            {
+                                <li><a href="#">@tag.Name <span>(@tag.BookTags.Count())</span></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
