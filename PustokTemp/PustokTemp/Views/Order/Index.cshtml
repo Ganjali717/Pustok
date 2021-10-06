@@ -1,0 +1,104 @@
+﻿@model List<Order>
+@{
+    ViewData["Title"] = "Index";
+    int index = 0;
+    int orderItemIndex = 0;
+}
+
+@section Styles{
+    <style>
+
+        .hiddenRow {
+            padding: 0 !important;
+        }
+    </style>
+}
+
+<div class="container">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Orders
+            </div>
+            <div class="panel-body">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th></th>
+                            <th>Total count</th>
+                            <th>Total Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                            index++;
+                            orderItemIndex = 0;
+
+                            <tr data-toggle="collapse" data-target="#demo-@index" class="accordion-toggle">
+                                <td>@index</td>
+                                <td><button class="btn btn-default btn-xs"><span class="fas fa-eye"></span></button></td>
+                                <td>@order.OrderItems.Count</td>
+                                <td>@order.TotalAmount</td>
+                                <td>@order.CreatedAt.AddHours(4).ToString("HH:mm dd MMM yyyy")</td>
+                                <td>
+                                    @if (order.Status == OrderStatus.Accepted)
+                                    {
+                                        <h5><span class="badge badge-success">Accepted</span></h5>
+                                    }
+                                    else if (order.Status == OrderStatus.Rejected)
+                                    {
+                                        <h5><span class="badge badge-danger">Rejected</span></h5>
+                                    }
+                                    else
+                                    {
+                                        <h5><span class="badge badge-info">Pending</span></h5>
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="12" class="hiddenRow">
+                                    <div class="accordian-body collapse" id="demo-@index">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr class="info">
+                                                    <th>#</th>
+                                                    <th>Book name</th>
+                                                    <th>Count</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                @foreach (var orderItem in order.OrderItems)
+                                                {
+                                                    orderItemIndex++;
+                                                    <tr>
+                                                        <td>@orderItemIndex</td>
+                                                        <td>@orderItem.BookName</td>
+                                                        <td>@orderItem.Count</td>
+                                                        <td>@(orderItem.SalePrice-orderItem.DiscountPrice)</td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>

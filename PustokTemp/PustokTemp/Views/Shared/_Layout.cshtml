@@ -1,12 +1,15 @@
-﻿
-@inject LayoutService service 
+﻿@inject LayoutService service
+@inject UserManager<AppUser> userManager
 
-@{ 
+@{
     Setting setting = service.GetSetting();
     List<BasketItemViewModel> basketItems = service.GetBasketItems();
-    
     double totalCount = 0;
- }
+    totalCount = basketItems.Sum(x => x.Price * x.Count);
+
+    AppUser member = User.Identity.IsAuthenticated ? userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
+
+}
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -20,6 +23,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="~/assets/css/plugins.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="~/assets/css/main.css" />
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/image/favicon.ico">
+    @RenderSection("Styles", required: false)
 </head>
 
 <body>
@@ -335,7 +339,7 @@
                                         {
                                             <a href="login-register.html" class="font-weight-bold">@User.Identity.Name</a>
                                             <br />
-                                            <a  class="font-weight-bold" asp-action="logout" asp-controller="account">Logout</a>
+                                            <a class="font-weight-bold" asp-action="logout" asp-controller="account">Logout</a>
                                         }
                                         else
                                         {
@@ -351,12 +355,12 @@
                                     <a href="#">
                                         <img src="~/assets/image/icon/wishlist.png" width="40" height="40" />
                                         <span class="text-number" style="background-color:red; border-radius:50%; color:white; padding:5px;">
-                                           @basketItems.Count
+                                            @basketItems.Count
                                         </span>
                                     </a>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -831,9 +835,9 @@
                 </div>
             </div>
         </div>
-       
-       @RenderBody()
-       
+
+        @RenderBody()
+
         <!-- Modal -->
         <div class="modal fade modal-quick-view" id="quickModal" tabindex="-1" role="dialog"
              aria-labelledby="quickModal" aria-hidden="true">
@@ -843,7 +847,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="product-details-modal" id="product-modal-detail">
-                      
+
                     </div>
                     <div class="modal-footer">
                         <div class="widget-social-share">
@@ -860,34 +864,34 @@
             </div>
         </div>
     </div>
-   
+
 
     @*<section class="section-margin">
-        <h2 class="sr-only">Brand Slider</h2>
-        <div class="container">
-            <div class="brand-slider sb-slick-slider border-top border-bottom" data-slick-setting='{
-                                            "autoplay": true,
-                                            "autoplaySpeed": 8000,
-                                            "slidesToShow": 6
-                                            }' data-slick-responsive='[
-                {"breakpoint":992, "settings": {"slidesToShow": 4} },
-                {"breakpoint":768, "settings": {"slidesToShow": 3} },
-                {"breakpoint":575, "settings": {"slidesToShow": 3} },
-                {"breakpoint":480, "settings": {"slidesToShow": 2} },
-                {"breakpoint":320, "settings": {"slidesToShow": 1} }
-            ]'>
-                @foreach (var item in Model.BrandSlides)
-	             {
-                <div class="single-slide">
-                    <img src="~/assets/image/others/@item.Image" alt="">
-                </div>
-	             }
+            <h2 class="sr-only">Brand Slider</h2>
+            <div class="container">
+                <div class="brand-slider sb-slick-slider border-top border-bottom" data-slick-setting='{
+                                                "autoplay": true,
+                                                "autoplaySpeed": 8000,
+                                                "slidesToShow": 6
+                                                }' data-slick-responsive='[
+                    {"breakpoint":992, "settings": {"slidesToShow": 4} },
+                    {"breakpoint":768, "settings": {"slidesToShow": 3} },
+                    {"breakpoint":575, "settings": {"slidesToShow": 3} },
+                    {"breakpoint":480, "settings": {"slidesToShow": 2} },
+                    {"breakpoint":320, "settings": {"slidesToShow": 1} }
+                ]'>
+                    @foreach (var item in Model.BrandSlides)
+                     {
+                    <div class="single-slide">
+                        <img src="~/assets/image/others/@item.Image" alt="">
+                    </div>
+                     }
 
-                
+
+                </div>
             </div>
-        </div>
-    </section>*@
-   
+        </section>*@
+
     <footer class="site-footer">
         <div class="container">
             <div class="row justify-content-between  section-padding">
@@ -898,7 +902,7 @@
                         </div>
                         <div class="footer-contact">
                             <p>
-                              @Html.Raw(setting.Address)
+                                @Html.Raw(setting.Address)
                             </p>
                             <p><span class="label">Phone:</span><span class="text">+@setting.ContactPhone</span></p>
                             <p><span class="label">Email:</span><span class="text">@setting.ContactEmail</span></p>
@@ -979,7 +983,7 @@
             </div>
         </div>
     </footer>
-   
+
     <script src="~/assets/js/plugins.js"></script>
     <script src="~/assets/js/ajax-mail.js"></script>
     <script src="~/assets/js/custom.js"></script>

@@ -40,8 +40,22 @@ using PustokTemp.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\Views\_ViewImports.cshtml"
+using PustokTemp.Models.Enums;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fe9f65977966c46ed9752801ebe2fe9ac65cedd7", @"/Views/Book/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8baa339307ce9d8c94c410edba1ac34a1ac737f4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e0a8e9a65a0e2dc282a44bac88a9c719ffebda85", @"/Views/_ViewImports.cshtml")]
     public class Views_Book_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<BookViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("value", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -137,7 +151,7 @@ using PustokTemp.Services;
                                 <span>Show:</span>
                                 <select class=""form-control nice-select sort-select"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd79343", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd79735", async() => {
                 WriteLiteral("3");
             }
             );
@@ -154,7 +168,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd710616", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd711008", async() => {
                 WriteLiteral("9");
             }
             );
@@ -170,7 +184,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd711807", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd712199", async() => {
                 WriteLiteral("5");
             }
             );
@@ -186,7 +200,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd712998", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd713390", async() => {
                 WriteLiteral("10");
             }
             );
@@ -202,7 +216,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd714190", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd714582", async() => {
                 WriteLiteral("12");
             }
             );
@@ -226,7 +240,7 @@ using PustokTemp.Services;
                                 <span>Sort By:</span>
                                 <select class=""form-control nice-select sort-select mr-0"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd715789", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd716181", async() => {
                 WriteLiteral("Default Sorting");
             }
             );
@@ -243,7 +257,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd717077", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd717469", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Name (A - Z)\r\n                                    ");
             }
             );
@@ -259,7 +273,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd718414", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd718806", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Name (Z - A)\r\n                                    ");
             }
             );
@@ -275,7 +289,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd719751", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd720143", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Price (Low &gt; High)\r\n                                    ");
             }
             );
@@ -291,7 +305,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd721097", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd721489", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Price (High &gt; Low)\r\n                                    ");
             }
             );
@@ -307,7 +321,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd722443", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd722835", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Rating (Highest)\r\n                                    ");
             }
             );
@@ -323,7 +337,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd723784", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd724176", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Rating (Lowest)\r\n                                    ");
             }
             );
@@ -339,7 +353,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd725124", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd725516", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Model (A - Z)\r\n                                    ");
             }
             );
@@ -355,7 +369,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd726462", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd726854", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Model (Z - A)\r\n                                    ");
             }
             );
@@ -405,7 +419,7 @@ using PustokTemp.Services;
                                 <span>Show:</span>
                                 <select class=""form-control nice-select sort-select"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd729694", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd730086", async() => {
                 WriteLiteral("3");
             }
             );
@@ -422,7 +436,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd730968", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd731360", async() => {
                 WriteLiteral("9");
             }
             );
@@ -438,7 +452,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd732159", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd732551", async() => {
                 WriteLiteral("5");
             }
             );
@@ -454,7 +468,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd733350", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd733742", async() => {
                 WriteLiteral("10");
             }
             );
@@ -470,7 +484,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd734542", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd734934", async() => {
                 WriteLiteral("12");
             }
             );
@@ -494,7 +508,7 @@ using PustokTemp.Services;
                                 <span>Sort By:</span>
                                 <select class=""form-control nice-select sort-select mr-0"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd736150", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd736542", async() => {
                 WriteLiteral("Default Sorting");
             }
             );
@@ -511,7 +525,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd737438", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd737830", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Name (A - Z)\r\n                                    ");
             }
             );
@@ -527,7 +541,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd738775", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd739167", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Name (Z - A)\r\n                                    ");
             }
             );
@@ -543,7 +557,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd740112", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd740504", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Price (Low &gt; High)\r\n                                    ");
             }
             );
@@ -559,7 +573,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd741458", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd741850", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Price (High &gt; Low)\r\n                                    ");
             }
             );
@@ -575,7 +589,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd742804", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd743196", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Rating (Highest)\r\n                                    ");
             }
             );
@@ -591,7 +605,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd744145", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd744537", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Rating (Lowest)\r\n                                    ");
             }
             );
@@ -607,7 +621,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd745485", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd745877", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Model (A - Z)\r\n                                    ");
             }
             );
@@ -623,7 +637,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd746823", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd747215", async() => {
                 WriteLiteral("\r\n                                        Sort\r\n                                        By:Model (Z - A)\r\n                                    ");
             }
             );
@@ -673,7 +687,7 @@ using PustokTemp.Services;
 #line hidden
 #nullable disable
             WriteLiteral("                                            <li>\r\n                                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd749495", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd749887", async() => {
                 WriteLiteral("\r\n                                                    |<i class=\"zmdi zmdi-chevron-left\"></i>\r\n                                                ");
             }
             );
@@ -696,7 +710,7 @@ using PustokTemp.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                            </li>\r\n                                            <li>\r\n                                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd751544", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd751936", async() => {
                 WriteLiteral("\r\n                                                    <i class=\"zmdi zmdi-chevron-left\"></i>\r\n                                                ");
             }
             );
@@ -766,7 +780,7 @@ WriteAttributeValue("", 11540, i==selectedPage?"active":"", 11540, 30, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd755573", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd755965", async() => {
 #nullable restore
 #line 212 "C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\Views\Book\Index.cshtml"
                                                                                                                                                                                                                                                               Write(i);
@@ -854,7 +868,7 @@ WriteAttributeValue("", 11540, i==selectedPage?"active":"", 11540, 30, false);
 #line hidden
 #nullable disable
             WriteLiteral("                                            <li>\r\n                                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd761478", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd761870", async() => {
                 WriteLiteral("\r\n                                                    <i class=\"zmdi zmdi-chevron-right\"></i>\r\n                                                ");
             }
             );
@@ -886,7 +900,7 @@ WriteAttributeValue("", 11540, i==selectedPage?"active":"", 11540, 30, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                            </li>\r\n                                            <li>\r\n                                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd764058", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd764450", async() => {
                 WriteLiteral("\r\n                                                    <i class=\"zmdi zmdi-chevron-right\"></i>|\r\n                                                ");
             }
             );
@@ -950,7 +964,7 @@ WriteAttributeValue("", 11540, i==selectedPage?"active":"", 11540, 30, false);
 #line hidden
 #nullable disable
             WriteLiteral("                                <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd767640", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd768032", async() => {
 #nullable restore
 #line 245 "C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\Views\Book\Index.cshtml"
                                                                                                                                                   Write(genre.Name);
@@ -1048,7 +1062,7 @@ WriteAttributeValue("", 11540, i==selectedPage?"active":"", 11540, 30, false);
 #line hidden
 #nullable disable
             WriteLiteral("                                <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd773097", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd773489", async() => {
 #nullable restore
 #line 268 "C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\Views\Book\Index.cshtml"
                                                                                                          Write(auth.FullName);
@@ -1119,7 +1133,7 @@ WriteAttributeValue("", 11540, i==selectedPage?"active":"", 11540, 30, false);
 #line hidden
 #nullable disable
             WriteLiteral("                                <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd777004", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe9f65977966c46ed9752801ebe2fe9ac65cedd777396", async() => {
 #nullable restore
 #line 278 "C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\Views\Book\Index.cshtml"
                                                                                                      Write(tag.Name);

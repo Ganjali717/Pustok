@@ -40,8 +40,22 @@ using PustokTemp.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\Views\_ViewImports.cshtml"
+using PustokTemp.Models.Enums;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c638a6e5d7b5619974c1978bc4e29ecbaa244b3f", @"/Views/Shared/_BasketPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8baa339307ce9d8c94c410edba1ac34a1ac737f4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e0a8e9a65a0e2dc282a44bac88a9c719ffebda85", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__BasketPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<BasketItemViewModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString(""), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -115,7 +129,7 @@ using PustokTemp.Services;
 #line hidden
 #nullable disable
             WriteLiteral("            <div class=\"cart-product\">\r\n                <a href=\"product-details.html\" class=\"image\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c638a6e5d7b5619974c1978bc4e29ecbaa244b3f7455", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c638a6e5d7b5619974c1978bc4e29ecbaa244b3f7847", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -163,7 +177,7 @@ AddHtmlAttributeValue("", 731, item.Image, 731, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("</p>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c638a6e5d7b5619974c1978bc4e29ecbaa244b3f10204", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c638a6e5d7b5619974c1978bc4e29ecbaa244b3f10596", async() => {
                 WriteLiteral("<i class=\"fas fa-times\"></i>");
             }
             );
@@ -215,7 +229,7 @@ AddHtmlAttributeValue("", 731, item.Image, 731, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("    </div>\r\n    <div class=\" single-cart-block \">\r\n        <div class=\"btn-block\">\r\n            <a href=\"cart.html\" class=\"btn\">\r\n                View Cart <i class=\"fas fa-chevron-right\"></i>\r\n            </a>\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c638a6e5d7b5619974c1978bc4e29ecbaa244b3f13826", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c638a6e5d7b5619974c1978bc4e29ecbaa244b3f14218", async() => {
                 WriteLiteral("\r\n                Check Out <i class=\"fas fa-chevron-right\"></i>\r\n            ");
             }
             );

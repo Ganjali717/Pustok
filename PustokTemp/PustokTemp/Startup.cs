@@ -45,7 +45,7 @@ namespace PustokTemp
 
             services.AddSession(x =>
             {
-                x.IdleTimeout = TimeSpan.FromMinutes(10);
+               
             });
         }
 

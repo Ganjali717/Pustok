@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -20,6 +21,13 @@ namespace PustokTemp.Controllers
         {
             _context = context;
             _userManager = userManager;
+        }
+
+        [Authorize(Roles = "Member")]
+        public IActionResult Index()
+        {
+            List<Order> orders = _context.Orders.Include(x => x.OrderItems).Where(x => x.AppUser.UserName == User.Identity.Name).ToList();
+            return View(orders);
         }
         public IActionResult Checkout()
         {
