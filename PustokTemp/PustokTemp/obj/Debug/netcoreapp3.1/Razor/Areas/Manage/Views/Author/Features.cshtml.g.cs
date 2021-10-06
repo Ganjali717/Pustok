@@ -33,8 +33,15 @@ using Microsoft.AspNetCore.Identity;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\Areas\Manage\Views\_ViewImports.cshtml"
+using PustokTemp.Models.Enums;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cef894aa3576b32ec1024afb0711e4c7d5b8c7c1", @"/Areas/Manage/Views/Author/Features.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"532deade0508c44dbf5a58858b676c7f143501ba", @"/Areas/Manage/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4096040719c8e0e65a86539364c33eaee1f51229", @"/Areas/Manage/Views/_ViewImports.cshtml")]
     public class Areas_Manage_Views_Author_Features : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Feature>>
     {
         #pragma warning disable 1998

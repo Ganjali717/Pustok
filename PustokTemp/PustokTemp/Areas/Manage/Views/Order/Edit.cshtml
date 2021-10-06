@@ -1,0 +1,56 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="container-fluid">
+    <h1>Edit</h1>
+    <div class="card" style="width: 40%; margin:0 auto;">
+        <div class="card-body">
+            <p class="card-text">
+                Full Name - @Model.FullName
+            </p>
+            <p class="card-text">
+                Email - @Model.Email
+            </p>
+            <p class="card-text">
+                Phone number - @Model.Phone
+            </p>
+            <p class="card-text">
+                Item count - @Model.OrderItems.Count
+            </p>
+            <p class="card-text">
+                Total Amount - @Model.TotalAmount
+            </p>
+            <p class="card-text">
+                City - @Model.City
+            </p>
+            <p class="card-text">
+                Address - @Model.Address
+            </p>
+            <p class="card-text">
+                ZipCode - @Model.ZipCode
+            </p>
+            <p class="card-text">
+                Date - @Model.CreatedAt.AddHours(4).ToString("HH:mm dd MMM yyyy")
+            </p>
+            <p class="card-text">
+                Note - @Model.Note
+            </p>
+            <p class="card-text">
+                Status - @Model.Status
+            </p>
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var orderItem in Model.OrderItems)
+            {
+            <li class="list-group-item">@orderItem.BookName  @orderItem.Count x @(orderItem.SalePrice - orderItem.DiscountPrice)</li>
+            }
+        </ul>
+        <div class="card-body">
+            <a asp-action="accept" asp-route-id="@Model.Id" class="btn btn-success">Accept</a>
+            <a asp-action="reject" asp-route-id="@Model.Id" class="btn btn-danger">Reject</a>
+        </div>
+    </div>
+</div>

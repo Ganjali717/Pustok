@@ -183,58 +183,6 @@
                 <!-- Pagination Block -->
                 <div class="row pt--30">
                     <div class="col-md-12">
-                        @*  <div class="pagination-block">
-            <ul class="pagination-btns flex-center">
-                <li>
-                    <a href="#" class="single-btn prev-btn ">
-                        |<i class="zmdi zmdi-chevron-left"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="single-btn prev-btn ">
-                        <i class="zmdi zmdi-chevron-left"></i>
-                    </a>
-                </li>
-                <li class="active"><a href="#" class="single-btn">1</a></li>
-                <li><a href="#" class="single-btn">2</a></li>
-                <li><a href="#" class="single-btn">3</a></li>
-                <li><a href="#" class="single-btn">4</a></li>
-                <li>
-                    <a href="#" class="single-btn next-btn">
-                        <i class="zmdi zmdi-chevron-right"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="single-btn next-btn">
-                        <i class="zmdi zmdi-chevron-right"></i>|
-                    </a>
-                </li>
-            </ul>
-        </div>*@
-
-                        @*<div class="d-flex justify-content-center">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item @(ViewBag.SelectedPage==1?"disabled":"")">
-                        <a class="page-link" asp-action="index" asp-route-page="@(ViewBag.SelectedPage-1)" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    @for (int i = 1; i <= ViewBag.TotalPage; i++)
-                    {
-                        <li class="page-item @(i==ViewBag.SelectedPage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
-                    }
-                    <li class="page-item @(ViewBag.SelectedPage==ViewBag.TotalPage?"disabled":"")">
-                        <a class="page-link" asp-action="index" asp-route-page="@(ViewBag.SelectedPage+1)" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>*@
-
                         <div class="row pt--30">
                             <div class="col-md-12">
                                 <div class="pagination-block">
@@ -254,38 +202,16 @@
                                             </li>
                                         }
 
-                                        @if (selectedPage != 1 && selectedPage != ViewBag.TotalPage)
-                                        {
-                                            <li><a asp-action="index" asp-route-page="@(selectedPage-1)" class="single-btn">@(selectedPage-1)</a></li>
-                                            <li class="active"><a asp-action="index" asp-route-page="@(selectedPage)" class="single-btn active">@selectedPage</a></li>
-                                            <li><a asp-action="index" asp-route-page="@(selectedPage+1)" class="single-btn">@(selectedPage+1)</a></li>
+                                        @{
+                                            int startPage = (selectedPage == 1 || totalPage <= 3) ? 1 : selectedPage < totalPage ? selectedPage - 1 : selectedPage - 2;
+                                            int endPage = totalPage > 2 ? startPage + 2 : (int)totalPage;
                                         }
 
-                                        else if (selectedPage == 1)
+                                        @for (int i = startPage; i <= endPage; i++)
                                         {
-                                            <li class="active"><a asp-action="index" asp-route-page="1" class="single-btn">1</a></li>
-                                            if (totalPage >= 2)
-                                            {
-                                                <li><a asp-action="index" asp-route-page="2" class="single-btn">2</a></li>
-                                            }
-                                            if (totalPage >= 3)
-                                            {
-                                                <li><a asp-action="index" asp-route-page="3" class="single-btn">3</a></li>
-                                            }
+                                            <li class="@(i==selectedPage?"active":"")"><a asp-action="index" asp-route-page="@i" asp-route-genreId="@ViewBag.GenreId" asp-route-authorId="@ViewBag.AuthorId"  asp-route-tagId="@ViewBag.TagId"  class="single-btn">@i</a></li>
                                         }
-                                        else
-                                        {
-                                            if (selectedPage - 2 >= 1)
-                                            {
-                                                <li><a asp-action="index" asp-route-page="@(selectedPage-2)" class="single-btn">@(selectedPage-2)</a></li>
-                                            }
-                                            if (selectedPage - 1 >= 1)
-                                            {
-                                                <li><a asp-action="index" asp-route-page="@(selectedPage-1)" class="single-btn">@(selectedPage-1)</a></li>
-                                            }
 
-                                            <li class="active"><a asp-action="index" asp-route-page="@selectedPage" class="single-btn">@selectedPage</a></li>
-                                        }
                                         @if (selectedPage < totalPage)
                                         {
                                             <li>
@@ -310,15 +236,15 @@
             </div>
             <div class="col-lg-3  mt--40 mt-lg--0">
                 <div class="inner-page-sidebar">
-                    <!-- Accordion -->
+                    <!-- Genres -->
                     <div class="single-block">
                         <h3 class="sidebar-title">Genres</h3>
                         <ul class="sidebar-menu--shop">
                             @foreach (var genre in Model.Genres)
                             {
-                                <li><a asp-action="filtergenre" asp-controller="book" asp-route-id="@genre.Id" class="get-by-genre" data-id="@genre.Id">@genre.Name (@genre.Books.Count())</a></li>
+                                <li><a asp-action="index" asp-controller="book" asp-route-genreId="@genre.Id" class="get-by-genre" data-id="@genre.Id">@genre.Name (@genre.Books.Count())</a></li>
                             }
-
+                                
                         </ul>
                     </div>
                     <!-- Price -->
@@ -333,23 +259,23 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Size -->
+                    <!-- Authors -->
                     <div class="single-block">
                         <h3 class="sidebar-title">Authors</h3>
                         <ul class="sidebar-menu--shop menu-type-2">
                             @foreach (var auth in Model.Authors)
                             {
-                                <li><a href="#">@auth.FullName <span>(@auth.Books.Count())</span></a></li>
+                                <li><a asp-action="index" asp-controller="book" asp-route-authorId="@auth.Id">@auth.FullName <span>(@auth.Books.Count())</span></a></li>
                             }
                         </ul>
                     </div>
-                    <!-- Color -->
+                    <!-- Tags -->
                     <div class="single-block">
                         <h3 class="sidebar-title">Tags</h3>
                         <ul class="sidebar-menu--shop menu-type-2">
                             @foreach (var tag in Model.Tags)
                             {
-                                <li><a href="#">@tag.Name <span>(@tag.BookTags.Count())</span></a></li>
+                                <li><a asp-action="index" asp-controller="book" asp-route-tagId="@tag.Id">@tag.Name <span>(@tag.BookTags.Count())</span></a></li>
                             }
                         </ul>
                     </div>

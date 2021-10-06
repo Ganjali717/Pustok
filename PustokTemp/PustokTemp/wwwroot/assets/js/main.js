@@ -67,7 +67,7 @@
             })
     })
 
-    $(document).on("click", ".get-by-genre", function (e) {
+   /* $(document).on("click", ".get-by-genre", function (e) {
         e.preventDefault()
 
         var id = $(this).attr("data-id");
@@ -77,7 +77,7 @@
                 $('.shop-product-wrap').html(data);
             })
         
-    })
+    })*/
 
     $(document).on("click", ".book-detail-btn", function (e) {
        var id = $(this).attr("data-id");

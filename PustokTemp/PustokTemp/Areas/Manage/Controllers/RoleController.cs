@@ -62,8 +62,8 @@ namespace PustokTemp.Areas.Manage.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Edit(IdentityRole identityRole)
         {
-            var test = TempData["name"];
-            IdentityRole existRole = _roleManager.Roles.FirstOrDefault(x => x.Name == test.ToString());
+            var name = TempData["name"];
+            IdentityRole existRole = _roleManager.Roles.FirstOrDefault(x => x.Name == name.ToString());
 
             if (existRole == null) return NotFound();
 
@@ -81,7 +81,7 @@ namespace PustokTemp.Areas.Manage.Controllers
 
             await _roleManager.DeleteAsync(deleteRole);
 
-            await _roleManager.UpdateAsync(deleteRole);
+           /* await _roleManager.UpdateAsync(deleteRole);*/
 
             return RedirectToAction("index");
         }

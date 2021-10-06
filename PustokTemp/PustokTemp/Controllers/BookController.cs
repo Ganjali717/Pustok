@@ -23,22 +23,32 @@ namespace PustokTemp.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(int page = 1, int? genreId = null, int? authorId=null, int? tagId=null)
         {
-           
+            var query = _context.Books.AsQueryable();
+            ViewBag.GenreId = genreId;
+            ViewBag.TagId = tagId;
+
+            if (genreId != null)
+                query = query.Where(x => x.GenreId == genreId);
+            if (authorId != null)
+                query = query.Where(x => x.AuthorId == authorId);
+            if (tagId != null)
+                query = query.Where(x => x.BookTags.Any(a => a.TagId == tagId));
+
             BookViewModel bookVM = new BookViewModel
             {
-                Books = _context.Books.Include(x => x.BookImages).Include(x => x.Author).Skip((page - 1) * 4).Take(6).ToList(),
+                Books = query.Include(x => x.BookImages).Include(x => x.Author).Skip((page - 1) * 4).Take(6).ToList(),
                 Authors = _context.Authors.Include(x => x.Books).ToList(),
                 Genres = _context.Genres.Include(x => x.Books).ToList(),
                 MaxPrice = _context.Books.Max(x => x.SalePrice),
                 MinPrice = _context.Books.Min(x => x.SalePrice),
                 Tags = _context.Tags.Include(x => x.BookTags).ToList(),
-
             };
 
-            ViewBag.TotalPage = Math.Ceiling(_context.Books.Count() / 4m);
             ViewBag.SelectedPage = page;
+            ViewBag.TotalPage = Math.Ceiling(query.Count() / 4m);
+            
             return View(bookVM);
         }
 
@@ -52,6 +62,7 @@ namespace PustokTemp.Controllers
         {
             Book book = _context.Books.Include(x => x.BookImages).FirstOrDefault(x => x.Id == id);
             BasketItemViewModel basketItem = null;
+            List<BasketItemViewModel> books = new List<BasketItemViewModel>();
 
             if (book == null) return NotFound();
 
@@ -61,10 +72,9 @@ namespace PustokTemp.Controllers
             {
                 member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
             }
-
+         
             if (member == null)
             {
-                List<BasketItemViewModel> books = new List<BasketItemViewModel>();
                 string booksStr;
 
                 if (HttpContext.Request.Cookies["Books"] != null)
@@ -113,9 +123,11 @@ namespace PustokTemp.Controllers
                 }
 
                 _context.SaveChanges();
+                books = _context.BasketItems.Include(x => x.Book).ThenInclude(bi => bi.BookImages).Where(x => x.AppUserId == member.Id)
+                    .Select(x => new BasketItemViewModel { BookId = x.BookId, Count = x.Count, Name = x.Book.Name, Price = x.Book.SalePrice - x.Book.DiscountPrice, Image = x.Book.BookImages.FirstOrDefault(b => b.PosterStatus == true).Image }).ToList();
             }
 
-            return RedirectToAction("index", "home");
+            return PartialView("_BasketPartial", books);
         }
 
         public IActionResult ShowBasket()
@@ -127,7 +139,7 @@ namespace PustokTemp.Controllers
 
         public IActionResult DeleteBook(int id)
         {
-            BasketItemViewModel basketItem = new BasketItemViewModel();
+            /*BasketItemViewModel basketItem = new BasketItemViewModel();
           
             List<BasketItemViewModel> books = new List<BasketItemViewModel>();
           
@@ -143,9 +155,67 @@ namespace PustokTemp.Controllers
 
             HttpContext.Response.Cookies.Append("Books", booksStr);
 
-            /*return RedirectToAction("index", "home");*/
+            *//*return RedirectToAction("index", "home");*//*
 
-            return PartialView("_BasketPartial", books);    
+            return PartialView("_BasketPartial", books); */
+
+            Book book = _context.Books.Include(x => x.BookImages).FirstOrDefault(x => x.Id == id);
+            BasketItemViewModel basketItem = null;
+            if (book == null) return NotFound();
+
+            AppUser member = null;
+
+            if (User.Identity.IsAuthenticated)
+            {
+                member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
+
+            }
+
+            List<BasketItemViewModel> books = new List<BasketItemViewModel>();
+
+            if (member == null)
+            {
+
+                string booksStr = HttpContext.Request.Cookies["Books"];
+                books = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(booksStr);
+
+                basketItem = books.FirstOrDefault(x => x.BookId == id);
+
+
+                if (basketItem.Count == 1)
+                {
+
+                    books.Remove(basketItem);
+                }
+                else
+                {
+                    basketItem.Count--;
+                }
+                booksStr = JsonConvert.SerializeObject(books);
+                HttpContext.Response.Cookies.Append("Books", booksStr);
+            }
+
+            else
+            {
+                BasketItem memberBasketItem = _context.BasketItems.Include(x => x.Book).FirstOrDefault(x => x.AppUserId == member.Id && x.BookId == id);
+
+                if (memberBasketItem.Count == 1)
+                {
+
+                    _context.BasketItems.Remove(memberBasketItem);
+                }
+                else
+                {
+                    memberBasketItem.Count--;
+                }
+
+                _context.SaveChanges();
+
+                books = _context.BasketItems.Include(x => x.Book).ThenInclude(bi => bi.BookImages).Where(x => x.AppUserId == member.Id)
+                    .Select(x => new BasketItemViewModel { BookId = x.BookId, Count = x.Count, Name = x.Book.Name, Price = x.Book.SalePrice - x.Book.DiscountPrice, Image = x.Book.BookImages.FirstOrDefault(b => b.PosterStatus == true).Image }).ToList();
+
+            }
+            return PartialView("_BasketPartial", books);
         }
 
         public IActionResult Detail(int id)
