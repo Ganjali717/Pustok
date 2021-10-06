@@ -13,6 +13,8 @@
     <Compile Remove="Migrations\20211001051425_CreateSomeItemsInBookTable.Designer.cs" />
     <Compile Remove="Migrations\20211004103319_UsersTableCreated.cs" />
     <Compile Remove="Migrations\20211004103319_UsersTableCreated.Designer.cs" />
+    <Compile Remove="Migrations\20211006062620_CreateOrderAndOrderItemAndEnum.cs" />
+    <Compile Remove="Migrations\20211006062620_CreateOrderAndOrderItemAndEnum.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

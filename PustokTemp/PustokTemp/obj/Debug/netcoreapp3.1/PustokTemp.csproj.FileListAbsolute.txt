@@ -508,3 +508,4 @@ C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\R
 C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Role\Index.cshtml.g.cs
 C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Role\Edit.cshtml.g.cs
 C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Role\Create.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\PustokTemp\PustokTemp\obj\Debug\netcoreapp3.1\Razor\Views\Order\Checkout.cshtml.g.cs

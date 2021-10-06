@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using PustokTemp.Models;
 using PustokTemp.ViewModels;
@@ -14,10 +16,13 @@ namespace PustokTemp.Services
     {
         private readonly AppDbContext _context;
         private readonly IHttpContextAccessor _contextAccessor;
-        public LayoutService(AppDbContext context, IHttpContextAccessor contextAccessor )
+        private readonly UserManager<AppUser> _userManager;
+
+        public LayoutService(AppDbContext context, IHttpContextAccessor contextAccessor, UserManager<AppUser> userManager)
         {
             _context = context;
             _contextAccessor = contextAccessor;
+            _userManager = userManager;
         }
 
         public Setting GetSetting()
@@ -27,20 +32,47 @@ namespace PustokTemp.Services
 
         public List<BasketItemViewModel> GetBasketItems()
         {
-            var itemsStr = _contextAccessor.HttpContext.Request.Cookies["Books"];
 
             List<BasketItemViewModel> items = new List<BasketItemViewModel>();
 
-            if (itemsStr != null)
+            AppUser member = null;
+            if (_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
             {
-                items = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(itemsStr);
+                member = _userManager.Users.FirstOrDefault(x => x.UserName == _contextAccessor.HttpContext.User.Identity.Name && !x.IsAdmin);
+            }
 
-                foreach (var item in items)
+
+            if (member == null)
+            {
+                var itemsStr = _contextAccessor.HttpContext.Request.Cookies["Books"];
+
+                if (itemsStr != null)
                 {
-                    Book book = _context.Books.FirstOrDefault(x => x.Id == item.BookId);
+                    items = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(itemsStr);
 
-                    item.Price = book.SalePrice - book.DiscountPrice;
+                    foreach (var item in items)
+                    {
+                        Book book = _context.Books.Include(c => c.BookImages).FirstOrDefault(x => x.Id == item.BookId);
+                        if (book != null)
+                        {
+                            item.Name = book.Name;
+                            item.Price = book.SalePrice - book.DiscountPrice;
+                            item.Image = book.BookImages.FirstOrDefault(x => x.PosterStatus == true)?.Image;
+                        }
+                    }
                 }
+            }
+            else
+            {
+                List<BasketItem> basketItems = _context.BasketItems.Include(x => x.Book).ThenInclude(x => x.BookImages).Where(x => x.AppUserId == member.Id).ToList();
+                items = basketItems.Select(x => new BasketItemViewModel
+                {
+                    BookId = x.BookId,
+                    Count = x.Count,
+                    Image = x.Book.BookImages.FirstOrDefault(bi => bi.PosterStatus == true)?.Image,
+                    Name = x.Book.Name,
+                    Price = x.Book.SalePrice - x.Book.DiscountPrice
+                }).ToList();
             }
 
             return items;

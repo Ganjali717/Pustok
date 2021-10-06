@@ -37,8 +37,7 @@ namespace PustokTemp
 
             services.AddIdentity<AppUser, IdentityRole>(options =>
             {
-
-                options.Password.RequireNonAlphanumeric = false;
+                 options.Password.RequireNonAlphanumeric = false;
             }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddScoped<LayoutService>();

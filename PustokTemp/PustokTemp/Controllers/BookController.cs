@@ -8,16 +8,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace PustokTemp.Controllers
 {
     public class BookController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public BookController(AppDbContext context)
+        public BookController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index(int page = 1)
@@ -52,37 +55,67 @@ namespace PustokTemp.Controllers
 
             if (book == null) return NotFound();
 
-            List<BasketItemViewModel> books = new List<BasketItemViewModel>();
-            string booksStr;
-            if (HttpContext.Request.Cookies["Books"] != null)
+            AppUser member = null;
+
+            if (User.Identity.IsAuthenticated)
             {
-                booksStr = HttpContext.Request.Cookies["Books"];
-                books = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(booksStr);
+                member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
+            }
 
-                basketItem = books.FirstOrDefault(x => x.BookId == id);
+            if (member == null)
+            {
+                List<BasketItemViewModel> books = new List<BasketItemViewModel>();
+                string booksStr;
 
-                if (basketItem != null)
+                if (HttpContext.Request.Cookies["Books"] != null)
                 {
-                    basketItem.Count++;
+                    booksStr = HttpContext.Request.Cookies["Books"];
+                    books = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(booksStr);
+
+                    basketItem = books.FirstOrDefault(x => x.BookId == id);
                 }
-                else
+
+                if (basketItem == null)
                 {
-                    basketItem = new BasketItemViewModel()
+                    basketItem = new BasketItemViewModel
                     {
                         BookId = book.Id,
                         Name = book.Name,
-                        Price = (book.SalePrice - book.DiscountPrice),
                         Image = book.BookImages.FirstOrDefault(x => x.PosterStatus == true).Image,
+                        Price = (book.SalePrice - book.DiscountPrice),
                         Count = 1
                     };
                     books.Add(basketItem);
                 }
+                else
+                {
+                    basketItem.Count++;
+                }
+                booksStr = JsonConvert.SerializeObject(books);
+                HttpContext.Response.Cookies.Append("Books", booksStr);
+            }
+            else
+            {
+                BasketItem memberBasketItem = _context.BasketItems.FirstOrDefault(x => x.AppUserId == member.Id && x.BookId == id);
+                if (memberBasketItem == null)
+                {
+                    memberBasketItem = new BasketItem
+                    {
+                        AppUserId = member.Id,
+                        BookId = id,
+                        Count = 1
+                    };
+                    _context.BasketItems.Add(memberBasketItem);
+                }
+                else
+                {
+                    memberBasketItem.Count++;
+                }
+
+                _context.SaveChanges();
             }
 
-             booksStr = JsonConvert.SerializeObject(books);
-            HttpContext.Response.Cookies.Append("Books", booksStr);
-
-            return PartialView("_BasketPartial", books);
+            return RedirectToAction("index", "home");
         }
 
         public IActionResult ShowBasket()

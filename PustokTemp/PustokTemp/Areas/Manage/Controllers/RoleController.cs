@@ -48,9 +48,6 @@ namespace PustokTemp.Areas.Manage.Controllers
         }
 
 
-
-
-
         public IActionResult Edit(string name)
         {
             IdentityRole role = _roleManager.Roles.FirstOrDefault(x => x.Name == name);
